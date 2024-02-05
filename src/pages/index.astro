@@ -1,16 +1,238 @@
 ---
+	import App from '../layouts/App.astro'
 
+	import { supabase } from "../lib/supabase";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Astro</h1>
-	</body>
-</html>
+<App title='Home' className=''>
+
+	<!-- Carousel Section Start -->
+	<div class="mt-32 -mb-12">
+		<div id="controls-carousel" class="relative w-full" data-carousel="slide">
+			<!-- Carousel wrapper -->
+			<div class="relative h-56 overflow-hidden rounded-md md:h-96">
+				<!-- Item 1 -->
+				<div class="hidden duration-700 ease-in-out" data-carousel-item>
+					<img draggable="false" src="https://flowbite.com/docs/images/carousel/carousel-1.svg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+				</div>
+				<!-- Item 2 -->
+				<div class="hidden duration-700 ease-in-out" data-carousel-item>
+					<img draggable="false" src="https://flowbite.com/docs/images/carousel/carousel-2.svg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+				</div>
+				<!-- Item 3 -->
+				<div class="hidden duration-700 ease-in-out" data-carousel-item>
+					<img draggable="false" src="https://flowbite.com/docs/images/carousel/carousel-3.svg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+				</div>
+				<!-- Item 4 -->
+				<div class="hidden duration-700 ease-in-out" data-carousel-item>
+					<img draggable="false" src="https://flowbite.com/docs/images/carousel/carousel-4.svg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+				</div>
+				<!-- Item 5 -->
+				<div class="hidden duration-700 ease-in-out" data-carousel-item>
+					<img draggable="false" src="https://flowbite.com/docs/images/carousel/carousel-5.svg" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
+				</div>
+			</div>
+			<!-- Slider indicators -->
+			<!-- <div class="absolute z-30 flex -translate-x-1/2 bottom-5 left-1/2 space-x-3 rtl:space-x-reverse">
+				<button type="button" class="w-3 h-3 rounded-full" aria-current="true" aria-label="Slide 1" data-carousel-slide-to="0"></button>
+				<button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 2" data-carousel-slide-to="1"></button>
+				<button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 3" data-carousel-slide-to="2"></button>
+				<button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 4" data-carousel-slide-to="3"></button>
+				<button type="button" class="w-3 h-3 rounded-full" aria-current="false" aria-label="Slide 5" data-carousel-slide-to="4"></button>
+			</div> -->
+			<!-- Slider controls -->
+			<button type="button" class="absolute top-0 start-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-prev>
+				<span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+					<svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+						<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 1 1 5l4 4"/>
+					</svg>
+					<span class="sr-only">Previous</span>
+				</span>
+			</button>
+			<button type="button" class="absolute top-0 end-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none" data-carousel-next>
+				<span class="inline-flex items-center justify-center w-10 h-10 rounded-full bg-white/30 dark:bg-gray-800/30 group-hover:bg-white/50 dark:group-hover:bg-gray-800/60 group-focus:ring-4 group-focus:ring-white dark:group-focus:ring-gray-800/70 group-focus:outline-none">
+					<svg class="w-4 h-4 text-white dark:text-gray-800 rtl:rotate-180" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 6 10">
+						<path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 9 4-4-4-4"/>
+					</svg>
+					<span class="sr-only">Next</span>
+				</span>
+			</button>
+		</div>
+	</div>
+	<!-- Carousel Section End -->
+
+	<!-- Welcome Section Start -->
+	<div class="absolute inset-x-0 -top-40 -z-10 transform-gpu overflow-hidden blur-3xl sm:-top-80" aria-hidden="true">
+		<div class="relative left-[calc(50%-11rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-30rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+	  </div>
+	  <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+		<div class="text-center">
+		  <h1 class="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">Kreasi School Template</h1>
+		  <p class="mt-6 text-lg leading-8 text-gray-600">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.</p>
+		  <!-- <div class="mt-10 flex items-center justify-center gap-x-6">
+			<a href="#" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Get started</a>
+			<a href="#" class="text-sm font-semibold leading-6 text-gray-900">Learn more <span aria-hidden="true">→</span></a>
+		  </div> -->
+		</div>
+	  </div>
+	  <div class="absolute inset-x-0 top-[calc(100%-13rem)] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[calc(100%-30rem)]" aria-hidden="true">
+		<div class="relative left-[calc(50%+3rem)] aspect-[1155/678] w-[36.125rem] -translate-x-1/2 bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%+36rem)] sm:w-[72.1875rem]" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
+	  </div>
+	<!-- Welcome Section End -->
+
+	<!-- Blog section Start -->
+	<div class="bg-white py-24 sm:py-32 -mt-32">
+		<div class="mx-auto max-w-7xl px-6 lg:px-8">
+		  <div class="mx-auto max-w-2xl lg:mx-0">
+			<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Blog Kami</h2>
+			<p class="mt-2 text-lg leading-8 text-gray-600">Learn how to grow your business with our expert advice.</p>
+		  </div>
+		  <div class="mx-auto mt-10 grid max-w-2xl grid-cols-1 gap-x-8 gap-y-16 border-t border-gray-200 pt-10 sm:mt-16 sm:pt-16 lg:mx-0 lg:max-w-none lg:grid-cols-3">
+			<!-- Blog Content Start -->
+			<article class="flex max-w-xl flex-col items-start justify-between">
+			  <div class="flex items-center gap-x-4 text-xs">
+				<time datetime="2020-03-16" class="text-gray-500">Mar 16, 2020</time>
+				<a href="#" class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Marketing</a>
+			  </div>
+			  <div class="group relative">
+				<h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+				  <a href="#">
+					<span class="absolute inset-0"></span>
+					Boost your conversion rate
+				  </a>
+				</h3>
+				<p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.</p>
+			  </div>
+			  <div class="relative mt-8 flex items-center gap-x-4">
+				<img src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="h-10 w-10 rounded-full bg-gray-50">
+				<div class="text-sm leading-6">
+				  <p class="font-semibold text-gray-900">
+					<a href="#">
+					  <span class="absolute inset-0"></span>
+					  Michael Foster
+					</a>
+				  </p>
+				  <p class="text-gray-600">Co-Founder / CTO</p>
+				</div>
+			  </div>
+			</article>
+			<article class="flex max-w-xl flex-col items-start justify-between">
+			  <div class="flex items-center gap-x-4 text-xs">
+				<time datetime="2020-03-16" class="text-gray-500">Mar 16, 2020</time>
+				<a href="#" class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Marketing</a>
+			  </div>
+			  <div class="group relative">
+				<h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+				  <a href="#">
+					<span class="absolute inset-0"></span>
+					Boost your conversion rate
+				  </a>
+				</h3>
+				<p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.</p>
+			  </div>
+			  <div class="relative mt-8 flex items-center gap-x-4">
+				<img src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="h-10 w-10 rounded-full bg-gray-50">
+				<div class="text-sm leading-6">
+				  <p class="font-semibold text-gray-900">
+					<a href="#">
+					  <span class="absolute inset-0"></span>
+					  Michael Foster
+					</a>
+				  </p>
+				  <p class="text-gray-600">Co-Founder / CTO</p>
+				</div>
+			  </div>
+			</article>
+			<article class="flex max-w-xl flex-col items-start justify-between">
+			  <div class="flex items-center gap-x-4 text-xs">
+				<time datetime="2020-03-16" class="text-gray-500">Mar 16, 2020</time>
+				<a href="#" class="relative z-10 rounded-full bg-gray-50 px-3 py-1.5 font-medium text-gray-600 hover:bg-gray-100">Marketing</a>
+			  </div>
+			  <div class="group relative">
+				<h3 class="mt-3 text-lg font-semibold leading-6 text-gray-900 group-hover:text-gray-600">
+				  <a href="#">
+					<span class="absolute inset-0"></span>
+					Boost your conversion rate
+				  </a>
+				</h3>
+				<p class="mt-5 line-clamp-3 text-sm leading-6 text-gray-600">Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.</p>
+			  </div>
+			  <div class="relative mt-8 flex items-center gap-x-4">
+				<img src="https://images.unsplash.com/photo-1519244703995-f4e0f30006d5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80" alt="" class="h-10 w-10 rounded-full bg-gray-50">
+				<div class="text-sm leading-6">
+				  <p class="font-semibold text-gray-900">
+					<a href="#">
+					  <span class="absolute inset-0"></span>
+					  Michael Foster
+					</a>
+				  </p>
+				  <p class="text-gray-600">Co-Founder / CTO</p>
+				</div>
+			  </div>
+			</article>
+
+			<!-- Blog Content Start -->
+		  </div>
+		  <div class="mt-16 flex items-center justify-center gap-x-6">
+			<!-- <a href="#" class="rounded-md bg-indigo-600 px-3.5 py-2.5 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Lihat Postingan Lainnya</a> -->
+			<button class="relative inline-flex items-center justify-center p-0.5 mb-2 me-2 overflow-hidden text-sm font-medium text-gray-900 rounded-lg group bg-gradient-to-br bg-blue-900 hover:text-white dark:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800">
+				<span class="relative px-5 py-2.5 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+					Lihat Postingan Lainnya
+				</span>
+			</button>
+		  </div>
+		</div>
+	</div>
+	  
+	<!-- Blog section End -->
+
+	<!-- Profile Sekolah Section Start -->
+	<div class="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 px-4 py-24 sm:px-6 sm:py-32 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
+		<div>
+			<img class="h-auto max-w-full rounded-lg my-5" src="https://flowbite.com/docs/images/examples/image-1@2x.jpg" alt="image description">
+			<img class="h-auto max-w-full rounded-lg my-5" src="https://flowbite.com/docs/images/examples/image-1@2x.jpg" alt="image description">
+		</div>
+		<div>
+			<h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Profil Sekolah</h2>
+			<p class="mt-4 text-gray-500">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.</p>
+			<h4 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl mt-10">Visi & Misi</h4>
+			<p class="mt-4 text-gray-500">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.</p>
+		</div>
+	</div>
+	<!-- Profile Sekolah Section End -->
+
+	<!-- Kerjuruan Section Start -->
+	<div class="mx-auto grid max-w-2xl grid-cols-1 items-center gap-x-8 gap-y-16 px-4 py-24 sm:px-6 sm:py-32 lg:max-w-7xl lg:grid-cols-2 lg:px-8">
+		<div>
+		  <h2 class="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">Kompetensi Keahlian</h2>
+		  <p class="mt-4 text-gray-500">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.</p>
+	
+		  <dl class="mt-16 grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 sm:gap-y-16 lg:gap-x-8">
+			<div class="border-t border-gray-200 pt-4">
+			  <dt class="font-medium text-gray-900">Teknik Komputer Dan Jaringan (TKJ)</dt>
+			  <dd class="mt-2 text-sm text-gray-500">Designed by Good Goods, Inc.</dd>
+			</div>
+			<div class="border-t border-gray-200 pt-4">
+			  <dt class="font-medium text-gray-900">Teknik Bisnis & Sepeda Motor (TBSM)</dt>
+			  <dd class="mt-2 text-sm text-gray-500">Solid walnut base with rare earth magnets and powder coated steel card cover</dd>
+			</div>
+			<div class="border-t border-gray-200 pt-4">
+			  <dt class="font-medium text-gray-900">Produksi Film (PF)</dt>
+			  <dd class="mt-2 text-sm text-gray-500">6.25&quot; x 3.55&quot; x 1.15&quot;</dd>
+			</div>
+			<div class="border-t border-gray-200 pt-4">
+			  <dt class="font-medium text-gray-900">Produksi & Siaran Program Televisi (PSPT)</dt>
+			  <dd class="mt-2 text-sm text-gray-500">Hand sanded and finished with natural oil</dd>
+			</div>
+		  </dl>
+		</div>
+		<div class="grid grid-cols-2 grid-rows-2 gap-4 sm:gap-6 lg:gap-8">
+		  <img src="https://tailwindui.com/img/ecommerce-images/product-feature-03-detail-01.jpg" alt="Walnut card tray with white powder coated steel divider and 3 punchout holes." class="rounded-lg bg-gray-100">
+		  <img src="https://tailwindui.com/img/ecommerce-images/product-feature-03-detail-02.jpg" alt="Top down view of walnut card tray with embedded magnets and card groove." class="rounded-lg bg-gray-100">
+		  <img src="https://tailwindui.com/img/ecommerce-images/product-feature-03-detail-03.jpg" alt="Side of walnut card tray with card groove and recessed card area." class="rounded-lg bg-gray-100">
+		  <img src="https://tailwindui.com/img/ecommerce-images/product-feature-03-detail-04.jpg" alt="Walnut card tray filled with cards and card angled in dedicated groove." class="rounded-lg bg-gray-100">
+		</div>
+	  </div>
+	<!-- Kerjuruan Section End -->
+
+</App>
